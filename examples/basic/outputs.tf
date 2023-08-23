@@ -1,4 +1,9 @@
-output "hello_world" {
-  description = "Hello World"
-  value       = module.MOD_SHORTNAME.hello_world
+output "arn" {
+  description = "ARN of the resource group."
+  value       = module.resource_group.arn
+}
+
+output "name" {
+  description = "Name of the resource group."
+  value       = module.resource_group.name
 }

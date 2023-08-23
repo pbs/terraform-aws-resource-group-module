@@ -1,4 +1,4 @@
-module "MOD_SHORTNAME" {
+module "resource_group" {
   source = "../.."
 
   organization = var.organization
