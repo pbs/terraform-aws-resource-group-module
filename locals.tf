@@ -1,5 +1,28 @@
 locals {
-  name    = var.name != null ? var.name : var.product
+  name        = var.name != null ? var.name : var.product
+  description = var.description != null ? var.description : "Resource group for ${var.product} in ${var.environment}."
+
+  query = var.query != null ? var.query : jsonencode({
+    ResourceTypeFilters = [
+      "AWS::AllSupported"
+    ]
+
+    TagFilters = [
+      {
+        Key = "${var.organization}:billing:product"
+        Values = [
+          var.product
+        ]
+      },
+      {
+        Key = "${var.organization}:billing:environment"
+        Values = [
+          var.environment
+        ]
+      },
+    ]
+  })
+
   creator = "terraform"
 
   defaulted_tags = merge(

@@ -1,4 +1,4 @@
-# PBS TF MOD_TITLE
+# PBS TF Resource Group Module
 
 ## Installation
 
@@ -7,7 +7,7 @@
 Use this URL for the source of the module. See the usage examples below for more details.
 
 ```hcl
-github.com/pbs/terraform-aws-MOD_NAME?ref=x.y.z
+github.com/pbs/terraform-aws-resource-group-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -16,20 +16,15 @@ More information can be found on these install methods and more in [the document
 
 ## Usage
 
-<!-- TODO -->
-This should be a basic description of what this module does.
-Fill this out before completing usage of this template.
-<!-- TODO -->
+Creates an AWS Resource Group group.
+
+By default, the module will group together all resources that are tagged with the standard tags that are required on all PBS AWS Terraform modules that support tags. This can be overridden by populating the `query` variable with a valid AWS Resource Group query.
 
 Integrate this module like so:
 
 ```hcl
-module "MOD_SHORTNAME" {
-  source = "github.com/pbs/terraform-aws-MOD_NAME?ref=x.y.z"
-
-  <!-- TODO -->
-  Show some examples of valid values for required parameters.
-  <!-- TODO -->
+module "resource_group" {
+  source = "github.com/pbs/terraform-aws-resource-group-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization

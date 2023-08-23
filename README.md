@@ -1,4 +1,4 @@
-# PBS TF MOD\_TITLE
+# PBS TF Resource Group Module
 
 ## Installation
 
@@ -7,7 +7,7 @@
 Use this URL for the source of the module. See the usage examples below for more details.
 
 ```hcl
-github.com/pbs/terraform-aws-MOD_NAME?ref=x.y.z
+github.com/pbs/terraform-aws-resource-group-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -16,20 +16,15 @@ More information can be found on these install methods and more in [the document
 
 ## Usage
 
-<!-- TODO -->
-This should be a basic description of what this module does.
-Fill this out before completing usage of this template.
-<!-- TODO -->
+Creates an AWS Resource Group group.
+
+By default, the module will group together all resources that are tagged with the standard tags that are required on all PBS AWS Terraform modules that support tags. This can be overridden by populating the `query` variable with a valid AWS Resource Group query.
 
 Integrate this module like so:
 
 ```hcl
-module "MOD_SHORTNAME" {
-  source = "github.com/pbs/terraform-aws-MOD_NAME?ref=x.y.z"
-
-  <!-- TODO -->
-  Show some examples of valid values for required parameters.
-  <!-- TODO -->
+module "resource_group" {
+  source = "github.com/pbs/terraform-aws-resource-group-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization
@@ -78,6 +73,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [aws_resourcegroups_group.group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/resourcegroups_group) | resource |
 | [aws_default_tags.common_tags](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/default_tags) | data source |
 
 ## Inputs
@@ -88,12 +84,14 @@ No modules.
 | <a name="input_organization"></a> [organization](#input\_organization) | Organization using this module. Used to prefix tags so that they are easily identified as being from your organization | `string` | n/a | yes |
 | <a name="input_product"></a> [product](#input\_product) | Tag used to group resources according to product | `string` | n/a | yes |
 | <a name="input_repo"></a> [repo](#input\_repo) | Tag used to point to the repo using this module | `string` | n/a | yes |
-| <a name="input_name"></a> [name](#input\_name) | Name of the MOD\_TITLE. If null, will default to product. | `string` | `null` | no |
+| <a name="input_description"></a> [description](#input\_description) | Description of the resource group module. | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name of the resource group module. If null, will default to product. | `string` | `null` | no |
+| <a name="input_query"></a> [query](#input\_query) | Query to use for the resource group. If null, will default to all supported resources for the product. | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Extra tags | `map(string)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_hello_world"></a> [hello\_world](#output\_hello\_world) | Hello world output |
-| <a name="output_tags"></a> [tags](#output\_tags) | The tags |
+| <a name="output_arn"></a> [arn](#output\_arn) | ARN of the resource group. |
+| <a name="output_name"></a> [name](#output\_name) | Name of the resource group. |

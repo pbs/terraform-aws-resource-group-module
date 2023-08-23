@@ -1,9 +1,9 @@
-output "hello_world" {
-  description = "Hello world output"
-  value       = "Hello, World!"
+output "arn" {
+  description = "ARN of the resource group."
+  value       = aws_resourcegroups_group.group.arn
 }
 
-output "tags" {
-  description = "The tags"
-  value       = local.tags
+output "name" {
+  description = "Name of the resource group."
+  value       = aws_resourcegroups_group.group.name
 }
