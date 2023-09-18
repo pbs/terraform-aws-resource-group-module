@@ -9,17 +9,11 @@ locals {
 
     TagFilters = [
       {
-        Key = "${var.organization}:billing:product"
+        Key = "app-insights-temp-tag"
         Values = [
           var.product
         ]
-      },
-      {
-        Key = "${var.organization}:billing:environment"
-        Values = [
-          var.environment
-        ]
-      },
+      }
     ]
   })
 
