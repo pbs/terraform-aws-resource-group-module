@@ -7,7 +7,7 @@
 Use this URL for the source of the module. See the usage examples below for more details.
 
 ```hcl
-github.com/pbs/terraform-aws-resource-group-module?ref=0.0.15
+github.com/pbs/terraform-aws-resource-group-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -24,7 +24,7 @@ Integrate this module like so:
 
 ```hcl
 module "resource_group" {
-  source = "github.com/pbs/terraform-aws-resource-group-module?ref=0.0.15"
+  source = "github.com/pbs/terraform-aws-resource-group-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization
@@ -40,7 +40,7 @@ module "resource_group" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`0.0.15`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
